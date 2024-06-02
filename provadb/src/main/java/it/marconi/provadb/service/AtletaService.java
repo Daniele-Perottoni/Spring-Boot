@@ -11,22 +11,18 @@ import java.util.List;
 @Service
 public class AtletaService {
 
-
     @Autowired
     AtletaRepository atletaRepo;
-
 
     public Atleta getAtleta(int id)
     {
         return atletaRepo.findById(id).orElse(null);
     }
 
-
     public List<Atleta> getAtleti() 
     {
         return atletaRepo.findAll();
     }
-
 
     public List<Atleta> getAtletaPerCognome(String cognome)
     {
@@ -42,5 +38,9 @@ public class AtletaService {
     {
         return atletaRepo.findBetweenIDs(idMin, idMax);
     }
-}
 
+    public List<String> getAtletiTraAnni(int annoMin, int annoMax)
+    {
+        return atletaRepo.findBetweenYears(annoMin, annoMax);
+    }
+}

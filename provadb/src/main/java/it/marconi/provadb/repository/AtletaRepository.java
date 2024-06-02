@@ -22,4 +22,8 @@ public interface AtletaRepository extends JpaRepository<Atleta, Integer>{
     @Query(value = "SELECT * FROM atleti WHERE id > :idmin AND id < :idmax", nativeQuery = true)
     List<Atleta> findBetweenIDs(@Param(value="idmin") int min,
                                 @Param(value="idmax") int max);
+
+    @Query(value = "SELECT nome FROM atleti WHERE year(datanascita) > :annoMin AND year(datanascita) < :annoMax", nativeQuery = true)
+    List<String> findBetweenYears(@Param(value="annoMin") int min,
+                                  @Param(value="annoMax") int max);
 }

@@ -9,5 +9,5 @@ public class ProvadbApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ProvadbApplication.class, args);
 	}
-
+	
 }

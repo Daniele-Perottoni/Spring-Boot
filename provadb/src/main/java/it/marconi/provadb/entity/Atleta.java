@@ -26,20 +26,15 @@ public class Atleta {
     @Column(name="id")
     private int id;
 
-
     @Column(name="nome")
     private String nome;
-
 
     @Column(name="cognome")
     private String cognome;
 
-
     @Column(name="datanascita")
     private Date datanascita;
 
-
     @Column(name="fknazione")
     private int fknazione;
-   
 }

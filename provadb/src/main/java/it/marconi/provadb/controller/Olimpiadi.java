@@ -14,27 +14,24 @@ import it.marconi.provadb.service.AtletaService;
 
 @RestController
 public class Olimpiadi {
+
     @Autowired
     AtletaService servizio;
-
 
     @GetMapping("/helloworld")
     public String prova() {
         return "sciao ragazzi";
     }
 
-
     @GetMapping("/atleti")
     public List<Atleta> stampaAtleti() {
         return servizio.getAtleti();
     }
 
-
     @GetMapping("/atleti/{id}")
     public Atleta stampaAtleta(@PathVariable("id") int n) {
         return servizio.getAtleta(n);
     }
-
 
     @GetMapping("/cercacognomi/{cognome}")
     public List<Atleta> getAtletaPerCognome(@PathVariable("cognome") String cognomeAtleta) {
@@ -47,9 +44,15 @@ public class Olimpiadi {
     }
 
     @GetMapping("/cercatraid")
-    public List<Atleta> getBetweenIDs(@RequestParam("idmin") int idMin,
+    public List<Atleta> getBetweenIDs(@RequestParam("idmin") int idMin, 
                                       @RequestParam("idmax") int idMax) {
         return servizio.getAtletiFraId(idMin, idMax);
+    }
+
+    @GetMapping("/nomitraanni")
+    public List<String> getBetweenYears(@RequestParam("annomin") int annoMin,
+                                        @RequestParam("annomax") int annoMax) {
+        return servizio.getAtletiTraAnni(annoMin, annoMax);
     }
     
 }
