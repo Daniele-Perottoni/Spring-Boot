@@ -16,12 +16,14 @@ public class AtletaService {
     AtletaRepository atletaRepo;
 
 
-    public Atleta getAtleta(int id) {
+    public Atleta getAtleta(int id)
+    {
         return atletaRepo.findById(id).orElse(null);
     }
 
 
-    public List<Atleta> getAtleti() {
+    public List<Atleta> getAtleti() 
+    {
         return atletaRepo.findAll();
     }
 
@@ -30,5 +32,15 @@ public class AtletaService {
     {
         return atletaRepo.findByCognome(cognome);
     }  
+
+    public List<Atleta> getAtletaPerNome(String nome)
+    {
+        return atletaRepo.findByNome(nome);
+    }
+
+    public List<Atleta> getAtletiFraId(int idMin, int idMax)
+    {
+        return atletaRepo.findBetweenIDs(idMin, idMax);
+    }
 }
 
